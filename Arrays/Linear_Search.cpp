@@ -47,7 +47,7 @@ int main(){
 
     int result = findKey(arr,n,key);
 
-    cout << "Given Key is in : " << result << endl;
+    cout << "Given Key is in : " << result << "th Index" << endl;
     
     return 0;
 
