@@ -1,3 +1,15 @@
+/*
+    Problem: Linear Search in an Array
+    Author: Hritik Pandey
+    Description:
+    This program takes n numbers and a key as input,
+    and searches for the key in the array using linear search.
+    It prints the index if found, or -1 if not found.
+
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+*/
+
 #include<iostream>
 using namespace std;
 
