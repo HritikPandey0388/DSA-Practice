@@ -42,13 +42,13 @@ int main(){
     int arr[][3] = {{1,2,3},{4,5,6}};
 
     int rows = sizeof(arr)/sizeof(arr[0]);
-    int col = sizeof(arr[0])/sizeof(arr[0][0]);
+    int cols = sizeof(arr[0])/sizeof(arr[0][0]);
 
-    if(rows==col){
-        Square(arr,rows,col); 
+    if(rows==cols){
+        Square(arr,rows,cols); 
     }
     else{
-        Rectangular(arr,rows,col); 
+        Rectangular(arr,rows,cols); 
     }
 
     return 0;
