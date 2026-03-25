@@ -1,0 +1,42 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void Pairs(vector<int> &nums, int target){
+
+    int n = nums.size();
+    int st = 0 ,end = (n-1);
+    int currSum = 0;
+    vector<int> ans;
+
+    while(st<end){
+
+        currSum = nums[st]+nums[end];
+
+        if(currSum==target){
+            ans.push_back(st);
+            ans.push_back(end);
+            break;
+        }
+        else if(currSum<target){
+            st++;
+        }
+        else{
+            end--;
+        }
+
+    }
+
+    cout << ans[0] << "," << ans[1] << endl;
+
+}
+
+int main(){
+
+    vector<int> nums = {1,2,5,8};
+    int target = 7;
+
+    Pairs(nums,target);
+
+    return 0;
+}
