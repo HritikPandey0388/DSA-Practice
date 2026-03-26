@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int Set_ithBit(int n, int i){
+int Clear_ithBit(int n, int i){
 
     int BitMask = ~(1 << i);
 
@@ -11,7 +11,7 @@ int Set_ithBit(int n, int i){
 
 int main(){
 
-    cout << Set_ithBit(6,1) << endl;
+    cout << Clear_ithBit(6,1) << endl;
 
     return 0;
 }
