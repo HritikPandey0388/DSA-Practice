@@ -10,7 +10,7 @@ void ClearBits(int Num, int i, int j){
 
     Num = (Num & BitMask);
 
-    cout << ans << endl;
+    cout << Num << endl;
 
 }
 
