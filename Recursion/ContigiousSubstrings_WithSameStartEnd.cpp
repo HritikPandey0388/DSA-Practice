@@ -29,4 +29,4 @@ int main(){
     AllSubstrings(str,0,0);
 
     return 0;
-}
+} 
