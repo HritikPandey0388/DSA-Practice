@@ -33,17 +33,18 @@ void KnightTour(vector<vector<int>> &board, int row, int col, int count){
 
     int n = board.size();
 
-    if(!(isSafe(board,row,col))){
+    if(!(isSafe(board,row,col))){        // checking for placed index is out of scope or not       
         return;
     }
 
-    board[row][col] = count;
+    board[row][col] = count;         // marked as travelled 
 
-    if(count == (n*n)-1){
+    if(count == (n*n)-1){            // base case
         PrintBoard(board);
         return ;
     }
         
+    // calling for each ways knight can move
     KnightTour(board,row+1,col+2,count+1);
     KnightTour(board,row+2,col+1,count+1);
     KnightTour(board,row-1,col-2,count+1);
@@ -53,6 +54,8 @@ void KnightTour(vector<vector<int>> &board, int row, int col, int count){
     KnightTour(board,row-1,col+2,count+1);
     KnightTour(board,row-1,col+2,count+1);
 
+    // this will hit that means knight has no way to move forward 
+    // knight did't took a right move 
     board[row][col] = -1;
 
 }
