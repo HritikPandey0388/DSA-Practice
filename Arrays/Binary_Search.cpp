@@ -1,36 +1,24 @@
-/*
-    Problem: Linear Search in an Array
-    Author: Hritik Pandey
-    Description:
-    This program takes n numbers and a key as input,
-    and searches for the key in the array using Binary search.
-    It prints the index if found, or -1 if not found.
-
-    Time Complexity: O(log n)
-    Space Complexity: O(1)
-*/
-
 #include<iostream>
 using namespace std;
 
 int BinarySearch(int *arr, int n, int key){
 
-    int st = 0, end = (n-1);
+    int st = 0, end = (n-1);           
 
-    while(st<=end){
-         
-        int mid = st + (end-st)/2;
+    while(st<=end){                                        // base case
+          
+        int mid = st + (end-st)/2;                        // finding mid for next call 
 
-        if(arr[mid]==key){
+        if(arr[mid]==key){                                // ans found
             return mid;
         }
 
-        else if(arr[mid]<key){
+        else if(arr[mid]<key){                            // answer exist in right part of array
             st = mid+1;
         }
 
         else{
-            end = mid-1;
+            end = mid-1;                                  // answer exist in left part of array 
         }
     }
 
