@@ -7,9 +7,9 @@ int helper(int arr[][3], int n){
 
     for(int i=0;i<n;i++){
 
-        sum += arr[i][i];
-        if(i!=(n-i-1)){
-            sum += arr[i][n-i-1];
+        sum += arr[i][i];                     // adding (i,i) diagonal elements in sum
+        if(i!=(n-i-1)){                       // excluding common diagonal element 
+            sum += arr[i][n-i-1];             // adding (i,n-i-1) diagonal elements in sum that are not 
         }
 
     }
