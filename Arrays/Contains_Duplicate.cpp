@@ -9,11 +9,11 @@ bool ContainsDuplicate(int *arr, int n){
 
     for(int i=0;i<n;i++){
 
-        if(s.find(arr[i])==s.end()){
-            s.insert(arr[i]);
+        if(s.find(arr[i])==s.end()){                 // arr[i] does't exist in set 
+            s.insert(arr[i]);                        // inserting arr[i] into set
         }
         else{
-            return false;
+            return false;                            // dublicate exist     
         }
     }
 
