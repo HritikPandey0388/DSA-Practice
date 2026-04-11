@@ -4,16 +4,16 @@ using namespace std;
 
 void maxSubArraySum(int *arr, int n){
 
-    int maxSum = INT_MIN;
-    int currSum = 0;
+    int maxSum = INT_MIN;   // stores maximum subarray sum
+    int currSum = 0;        // stores current running sum
 
     for(int i=0;i<n;i++){
         
-        currSum += arr[i];
-        maxSum = max(maxSum,currSum);
+        currSum += arr[i];              // extend current subarray
+        maxSum = max(maxSum,currSum);   // update maximum if needed
 
         if(currSum<0){
-            currSum = 0;
+            currSum = 0;                // reset if sum becomes negative (start fresh)
         }
 
     }
@@ -24,8 +24,8 @@ void maxSubArraySum(int *arr, int n){
 
 int main(){
 
-    int arr[5] = {0,-5,2,1,4};
-    int n = 5;
+    int arr[5] = {0,-5,2,1,4};  
+    int n = 5;                  
 
     maxSubArraySum(arr,n);
 
