@@ -4,22 +4,22 @@ using namespace std;
 
 void MaxSubArrayProduct(int *arr, int n){
 
-    int Prefix=1, Suffix=1;
-    int ans=INT_MIN;
+    int Prefix=1, Suffix=1;   // track product from left and right
+    int ans=INT_MIN;          // store maximum product
 
     for(int i=0;i<n;i++){
 
         if(Prefix == 0){ 
-            Prefix = 1;
+            Prefix = 1;       // reset if prefix becomes 0
         }    
         if(Suffix == 0){ 
-            Suffix = 1;
+            Suffix = 1;       // reset if suffix becomes 0
         }    
 
-        Prefix *= arr[i];
-        Suffix *= arr[n - i - 1];
+        Prefix *= arr[i];             // multiply from left
+        Suffix *= arr[n - i - 1];     // multiply from right
 
-        ans = max(ans, max(Prefix, Suffix));
+        ans = max(ans, max(Prefix, Suffix));   // update max product
 
     }
 
