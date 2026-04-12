@@ -3,38 +3,41 @@ using namespace std;
 
 void Rectangular(int arr[][3], int n, int m){
 
+    // New matrix to store transpose
     int nums[m][n];
 
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            nums[j][i]=arr[i][j];
+    // Transpose logic: swap indices
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            nums[j][i] = arr[i][j];
         }
     }
     
-    for(int i=0;i<m;i++){
-        for(int j=0;j<n;j++){
+    // Print transposed matrix
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++){
             cout << nums[i][j] << " ";
         }
         cout << endl;
     }
-
 }
 
 void Square(int arr[][3], int n, int m){
 
-    for(int i=0;i<n;i++){
-        for(int j=(i+1);j<m;j++){
-            swap(arr[i][j],arr[j][i]);
+    // In-place transpose (only upper triangle)
+    for(int i = 0; i < n; i++){
+        for(int j = i + 1; j < m; j++){
+            swap(arr[i][j], arr[j][i]);
         }
     }
 
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
+    // Print transposed matrix
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
             cout << arr[i][j] << " ";
         }
         cout << endl;
     }
-
 }
 
 int main(){
