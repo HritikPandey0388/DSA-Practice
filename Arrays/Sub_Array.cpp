@@ -3,12 +3,15 @@ using namespace std;
 
 void PrintSubArray(int *arr, int n){
 
-    for(int start=0;start<n;start++){
+    // Loop to fix starting index
+    for(int start = 0; start < n; start++){
         
-        for(int end=start;end<n;end++){
+        // Loop to fix ending index
+        for(int end = start; end < n; end++){
             
-            for(int i=start;i<=end;i++){
-                cout << arr[i] ;
+            // Loop to print elements from start to end
+            for(int i = start; i <= end; i++){
+                cout << arr[i];
             }
 
             cout << ",";
@@ -16,7 +19,6 @@ void PrintSubArray(int *arr, int n){
 
         cout << endl;
     }
-
 }
 
 int main(){
