@@ -15,15 +15,17 @@ void PrintMatrix(vector<vector<int>>& matrix){
 
 void swapColums(vector<vector<int>>& matrix){
 
-    int i=0;
-    int j=matrix[0].size()-1;
+    int i=0;                            // ending idx
+    int j=matrix[0].size()-1;           // starting idx
 
+    // swapping elements
     while(i<j){
 
         for(int k=0;k<matrix.size();k++){
             swap(matrix[k][i],matrix[k][j]);
         }
-
+ 
+        // updating start and end
         i++;
         j--;
 
@@ -36,12 +38,14 @@ void Transpose(vector<vector<int>>& matrix){
     int m =matrix.size();
     int n =matrix[0].size();
 
+    // Transpose
     for(int i=0;i<m;i++){
         for(int j=(i+1);j<n;j++){
             swap(matrix[i][j],matrix[j][i]);
         }
     }
 
+    // Reversing columns to complete the 90° clockwise rotation
     return swapColums(matrix);
 
 }
