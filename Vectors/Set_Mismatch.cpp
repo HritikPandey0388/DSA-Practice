@@ -12,30 +12,34 @@ void PrintAns(vector<int> &ans){
 
 void setMismatch(vector<int>& nums){
     
-    unordered_set<int> s;
-    vector<int> ans;
+    unordered_set<int> s;   // Tracks numbers we've already seen
+    vector<int> ans;        // Stores [duplicate, missing]
         
     int n = nums.size();
-    int sum = 0;
+    int sum = 0;             // actual sum
 
     for(int i = 0; i < n; i++) {
+
+        // nums[i] already exists 
         if(s.find(nums[i]) != s.end()) {
-            ans.push_back(nums[i]); // duplicate
+            ans.push_back(nums[i]);   // Store duplicate as ans[0]
         }
-        s.insert(nums[i]);
-        sum += nums[i];
+
+        s.insert(nums[i]);   // Mark nums[i] as seen
+        sum += nums[i];      // add to actual sum
     }
 
-        
+    // expected sum 
     int actualSum = n * (n + 1) / 2;
 
     int duplicate = ans[0];
+
+    // missing Element
     int missing = actualSum - (sum - duplicate);
 
-    ans.push_back(missing);
+    ans.push_back(missing);   // Store missing as ans[1]
 
     PrintAns(ans);
-    
 }
 
 
