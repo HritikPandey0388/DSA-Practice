@@ -4,24 +4,29 @@ using namespace std;
 
 void MaxArea(vector<int> &height){
 
-    int maxWater=0;
-    int lp=0;
-    int rp=(height.size()-1);
+    int maxWater = 0;
 
-    while(lp<rp){
+    int lp = 0;                        // left pointer
+    int rp = height.size() - 1;        // right pointer
 
-        int w=rp-lp;
-        int ht=min(height[lp],height[rp]);
+    while(lp < rp){
+
+        int width = rp - lp;                           // width
+        int ht = min(height[lp], height[rp]);          // height
             
-        int currentWater=w*ht;
+        int currentWater = width * ht;                 // area
             
-        maxWater=max(maxWater,currentWater);
+        maxWater = max(maxWater, currentWater);        // update max
             
-        height[lp]<height[rp] ? lp++ : rp--;
+        // Move the pointer with smaller height
+        if(height[lp] < height[rp]){
+            lp++;
+        } else {
+            rp--;
+        }
     }
     
     cout << "Container With max Water is : " << maxWater << endl;
-
 }
 
 int main(){
