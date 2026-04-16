@@ -3,29 +3,39 @@ using namespace std;
 
 int main(){
     
-    int rows,cols;
-    cout << " Enter Rows : ";
+    int rows, cols;
+
+    cout << "Enter Rows: ";
     cin >> rows;
 
-    cout << " Enter columns : ";
+    cout << "Enter Columns: ";
     cin >> cols;
 
+    // Allocating array of row pointers
     int** matrix = new int*[rows];
 
-    for(int i=0;i<rows;i++){
+    // Allocating each row dynamically
+    for(int i = 0; i < rows; i++){
         matrix[i] = new int[cols];
     }
 
-    int x=1;
+    int x = 1;
 
-    for(int i=0;i<rows;i++){
-        for(int j=0;j<cols;j++){
-            matrix[i][j]=x++;
+    // Filling the matrix
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j < cols; j++){
+            matrix[i][j] = x++;
             cout << matrix[i][j] << " ";
         }
         cout << endl;
     }
 
+    // Deleting dynamically allocated memory
+    for(int i = 0; i < rows; i++){
+        delete[] matrix[i];
+    }
+
+    delete[] matrix;
 
     return 0;
 }
