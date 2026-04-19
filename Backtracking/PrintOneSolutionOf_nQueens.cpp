@@ -56,22 +56,23 @@ void nQueens(vector<vector<char>> board, int row, bool &flag){
 
     int n = board.size();
 
+    // base case
     if(row==n){
         PrintBoard(board);
-        flag = true;
-        return;
+        flag = true;             // updating falg(got one solution)
+        return;                
     }    
 
     for(int j=0;j<n;j++){
 
-        if(flag==true){
+        if(flag==true){          // already got 1 solution
             return;
         }
 
         if(isSafe(board,row,j)){
-            board[row][j] = 'Q';
-            nQueens(board,row+1,flag);
-            board[row][j] = '.';
+            board[row][j] = 'Q';           // include
+            nQueens(board,row+1,flag);     // calling function for next row 
+            board[row][j] = '.';           // exclude (Backtracking)
         }
     }
     
