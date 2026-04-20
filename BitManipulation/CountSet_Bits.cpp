@@ -6,11 +6,11 @@ void CountSetBits(int num){
     int count = 0;
  
     while(num>0){
-        
-        int LastDig = num & 1;
-        count += LastDig;
+         
+        int LastDig = num & 1;     // getting last digit 
+        count += LastDig;          // adding current digit count to ans      
 
-        num = num >> 1;
+        num = num >> 1;            // reducing number (num = num/2)
 
     }
 
