@@ -1,13 +1,15 @@
 #include<iostream>
 using namespace std;
 
-void Update_ithBit(int Num, int i, int val){                    //updating Ith Bit with given value
- 
-    Num = Num & ~(1 << i);                                       //clear Ith Bit
+void Update_ithBit(int Num, int i, int val){                  
+
+    // ~(1 << i) flips it all 1s except i-th bit
+    Num = Num & ~(1 << i);                                       
+    
+    // (val << i) shifts val to i-th position
     Num = Num | (val << i);
 
-    cout << Num << endl ;
-
+    cout << Num << endl;
 }
 
 int main(){
