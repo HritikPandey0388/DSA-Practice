@@ -37,7 +37,7 @@ void setMismatch(vector<int>& nums){
     // missing Element
     int missing = actualSum - (sum - duplicate);
 
-    ans.push_back(missing);   // Store missing as ans[1]
+    ans.push_back(missing);   // Storing missing as ans[1]
 
     PrintAns(ans);
 }
