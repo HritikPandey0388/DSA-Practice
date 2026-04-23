@@ -15,8 +15,8 @@ void PrintMatrix(vector<vector<int>>& matrix){
 
 void swapColums(vector<vector<int>>& matrix){
 
-    int i=0;                            // ending idx
-    int j=matrix[0].size()-1;           // starting idx
+    int i=0;                            // ending index
+    int j=matrix[0].size()-1;           // starting index
 
     // swapping elements
     while(i<j){
