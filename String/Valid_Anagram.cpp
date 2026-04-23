@@ -28,7 +28,6 @@ void isAnagram(string &str1, string &str2){
         count[str2[i] - 'a']--;
     }
     
-    // valid anagram
     cout << "Valid Anagram" << endl;
 }
 
