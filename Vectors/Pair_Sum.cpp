@@ -5,7 +5,8 @@ using namespace std;
 void Pairs(vector<int> &nums, int target){
 
     int n = nums.size();
-    int st = 0 ,end = (n-1);  // starting and ending index 
+    int st = 0;               // starting index
+    int end = (n-1);          // ending index 
     int currSum = 0;
     vector<int> ans;          // contains ans pair
 
@@ -13,17 +14,17 @@ void Pairs(vector<int> &nums, int target){
 
         currSum = nums[st]+nums[end];
 
-        // pairs obtained
+        // Pairs obtained
         if(currSum==target){
             ans.push_back(st);
             ans.push_back(end);
             break;
         }
-        // excluding nums[st]
+        // Pair doesn't contain nums[st]
         else if(currSum<target){
             st++;
         }
-        // excluding nums[end]
+        // Pair doesn't contain nums[end]
         else{
             end--;
         }
