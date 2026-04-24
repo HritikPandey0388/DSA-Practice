@@ -19,7 +19,7 @@ int main(){
         matrix[i] = new int[cols];
     }
 
-    int x = 1;
+    int x = 1;     // Element to store at each index
 
     // Filling the matrix
     for(int i = 0; i < rows; i++){
