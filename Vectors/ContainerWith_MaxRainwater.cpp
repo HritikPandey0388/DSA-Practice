@@ -11,10 +11,10 @@ void MaxArea(vector<int> &height){
 
     while(lp < rp){
 
-        int width = rp - lp;                           // width
+        int wth = rp - lp;                           // width
         int ht = min(height[lp], height[rp]);          // height
             
-        int currentWater = width * ht;                 // area
+        int currentWater = wth * ht;                 // area
             
         maxWater = max(maxWater, currentWater);        // update max
             
