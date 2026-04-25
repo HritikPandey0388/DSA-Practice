@@ -14,7 +14,7 @@ bool isDuplicate(string &str){
         // Pushing everything except closing bracket
         if(ch != ')'){
             s.push(ch);
-        }
+        } 
         else{
             // stack should not be empty
             if(s.empty()){
@@ -27,7 +27,7 @@ bool isDuplicate(string &str){
             }
             else{
                 // Pop until '('
-                while(!s.empty() && s.top() != '('){
+                while(s.top() != '('){
                     s.pop();
                 }
 
