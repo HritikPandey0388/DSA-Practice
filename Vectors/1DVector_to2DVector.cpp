@@ -15,6 +15,7 @@ void PrintVector(vector<vector<int>> &ans){
 
 vector<vector<int>> construct2DArray(vector<int>& original, int m, int n) {
     
+    // ans doesn't exist
     if((m * n) != original.size()){
         cout << "Cannot Implement 2D Array" << endl;
         return {};
@@ -23,7 +24,7 @@ vector<vector<int>> construct2DArray(vector<int>& original, int m, int n) {
     // Initializing 2D vector 
     vector<vector<int>> ans(m, vector<int>(n));
     
-    int idx = 0; // Pointer for original array
+    int idx = 0; // Pointer for original(1D) array
 
     // Filling the 2D array row-wise
     for(int i = 0; i < m; i++){
