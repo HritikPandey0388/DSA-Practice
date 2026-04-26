@@ -23,7 +23,7 @@ void threeSum(vector<int>& nums){
     int n = nums.size();
     vector<vector<int>> ans;
 
-    // Sorting the array
+    // Sorting the array (for 2 pointer)
     sort(nums.begin(), nums.end());
         
     for(int i = 0; i < n; i++){
@@ -36,16 +36,16 @@ void threeSum(vector<int>& nums){
         int j = i + 1;
         int k = n - 1;
 
-        // Two-pointer search
+        // Two-pointer 
         while(j < k){
 
             int sum = nums[i] + nums[j] + nums[k];
                 
             if(sum < 0){
-                j++; // Need larger sum
+                j++; // Need larger nums[j]
             }
             else if(sum > 0){
-                k--; // Need smaller sum
+                k--; // Need smaller nums[k]
             }
             else{
                 // Found valid triplet
