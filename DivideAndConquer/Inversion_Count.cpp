@@ -1,38 +1,66 @@
-#include<iostream>
-#include<vector>
-#include<climits>
+#include <bits/stdc++.h>
 using namespace std;
 
-int Count(vector<int> &nums, int st, int end){
+class Solution {
+public:
+    long long merge(vector<int>& arr, int l, int m, int r) {
+        vector<int> temp;
+        int i = l;
+        int j = m + 1;
+        long long invCount = 0;
 
-    int n = end-st+1;
+        while (i <= m && j <= r) {
+            if (arr[i] <= arr[j]) {
+                temp.push_back(arr[i]);
+                i++;
+            } else {
+                temp.push_back(arr[j]);
+                invCount += (m - i + 1);  // key idea
+                j++;
+            }
+        }
 
-    
+        while (i <= m) {
+            temp.push_back(arr[i]);
+            i++;
+        }
 
-    return count;
-}
+        while (j <= r) {
+            temp.push_back(arr[j]);
+            j++;
+        }
 
-int InversionCount(vector<int> &nums, int st, int end){
+        for (int k = l; k <= r; k++) {
+            arr[k] = temp[k - l];
+        }
 
-    if(st==end){
-        return 0;
+        return invCount;
     }
 
-    int mid = st + (end-st)/2;
-    
-    InversionCount(nums,st,mid);
-    InversionCount(nums,mid+1,end);
+    long long mergeSort(vector<int>& arr, int l, int r) {
+        long long invCount = 0;
 
-    return Count(nums,st,mid)+Count(nums,mid+1,end);
-}
+        if (l >= r) return 0;
 
-int main(){
+        int m = l + (r - l) / 2;
 
-    vector<int> nums={5,4,2,3,6};
-    int n = nums.size()-1;
-    int ans = InversionCount(nums,0,n);
+        invCount += mergeSort(arr, l, m);
+        invCount += mergeSort(arr, m + 1, r);
+        invCount += merge(arr, l, m, r);
 
-    cout << ans << endl;
+        return invCount;
+    }
+
+    long long inversionCount(vector<int>& arr) {
+        return mergeSort(arr, 0, arr.size() - 1);
+    }
+};
+
+int main() {
+    vector<int> arr = {2, 4, 1, 3, 5};
+
+    Solution obj;
+    cout << obj.inversionCount(arr) << endl;
 
     return 0;
 }
