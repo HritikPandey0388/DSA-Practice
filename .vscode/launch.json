@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/91917/OneDrive/Apps/Desktop/DSA-GitHub/Arrays",
-      "program": "c:/Users/91917/OneDrive/Apps/Desktop/DSA-GitHub/Arrays/build/Debug/outDebug",
+      "cwd": "c:/Users/91917/OneDrive/Apps/Desktop/DSA-GitHub",
+      "program": "c:/Users/91917/OneDrive/Apps/Desktop/DSA-GitHub/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
