@@ -15,14 +15,20 @@ public:
 };
 
 Node* Insert(Node* root, int val) {
+
+    // base case
     if (root == NULL) {
         root = new Node(val);
         return root;
     }
 
+    // Insertion in left subTree
     if (val < root->data) {
         root->left = Insert(root->left, val);
-    } else {
+    }
+    
+    // Insertion in right subTree
+    else {
         root->right = Insert(root->right, val);
     }
 
@@ -32,7 +38,8 @@ Node* Insert(Node* root, int val) {
 Node* BuildTree(int arr[], int size) {
 
     Node* root = NULL;
-    
+
+    // Ceating and Inserting each Node of given value in array 
     for (int i = 0; i < size; i++) {
         root = Insert(root, arr[i]);
     }
@@ -40,6 +47,7 @@ Node* BuildTree(int arr[], int size) {
     return root;
 }
 
+// Printing inorder sequence
 void Inorder(Node* root){
 
     if(root==NULL){
