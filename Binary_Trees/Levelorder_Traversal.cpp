@@ -38,22 +38,41 @@ void LevelOrder(Node* root){
     queue<Node*> q;
 
     q.push(root);
+    q.push(NULL);
 
     cout << "Level order Traversal is :- " << endl;
 
     while(!q.empty()){
         
+        // storing Current Node
         Node* curr = q.front();
         q.pop();
 
-        cout << curr->data << " ";
+        // current --> NULL (switch to next line)
+        if (curr == NULL) {
+            cout << endl;
 
-        if(curr->left!=NULL){
-            q.push(curr->left);
+            // stack != empty push NULL 
+            if (!q.empty()) {
+                q.push(NULL);
+            }
         }
-        if(curr->right!=NULL){
-            q.push(curr->right);
+        else{
+
+            // Print current Node value
+            cout << curr->data << " ";
+
+            // Push left child
+            if(curr->left!=NULL){
+                q.push(curr->left);
+            }
+
+            // Push right child
+            if(curr->right!=NULL){
+                q.push(curr->right);
+            }
         }
+
     }
 
     cout << endl;
