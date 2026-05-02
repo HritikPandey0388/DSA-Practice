@@ -36,27 +36,38 @@ Node* BuildTree(vector<int> nodes){
 
 void TopView(Node* root){
 
+    // Queue stores pair of (node, horizontal distance)
     queue<pair<Node*,int>> q;
+
+    // Map -> (Horizontal distance, Node val)
     map<int,int> m;
 
+    // Pushing root with horizontal distance 0 
     q.push(make_pair(root,0));
 
+    // Level Order Traversal (BFS)
     while(!q.empty()){
 
+        // store current Pair and pop it
         pair<Node*,int> curr = q.front();
         q.pop();
 
-        Node* currNode = curr.first;
-        int currHD = curr.second;
+        // store current Pair Node and Horizontal distance
+        Node* currNode = curr.first;              // Current Node
+        int currHD = curr.second;                 // Current Node Horizontal Distance(HD) 
 
+        // Only push in map if it is first Occurance
         if(m.count(currHD)==0){
             m[currHD] = currNode->data;
         }
 
+        // Pushing Pair for Left Child
         if(currNode->left!=NULL){
             pair<Node*,int> left = make_pair(currNode->left,currHD-1); 
             q.push(left);
         }
+
+        // Pushing Pair for Right Child
         if(currNode->right!=NULL){
             pair<Node*,int> right = make_pair(currNode->right,currHD+1); 
             q.push(right);
@@ -64,6 +75,7 @@ void TopView(Node* root){
 
     }
 
+    // Print Top View (Stored in map)
     for(auto it:m){
         cout << it.second << " " ;
     }
