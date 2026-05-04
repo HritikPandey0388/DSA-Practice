@@ -34,22 +34,29 @@ Node* BuildTree(vector<int> nodes){
 
 bool rootToNodePath(Node* root, int n, vector<int> &path){
 
+    // base case
     if(root==NULL){
         return false;
     }
 
+    // including current Node
     path.push_back(root->data);
+
+    // checking if Path found 
     if(root->data==n){
         return true;
     }
 
+    // Path not found --> call for left and right subTree
     int isLeft = rootToNodePath(root->left,n,path);
     int isRight = rootToNodePath(root->right,n,path);
 
+    // check Path exist in any one or not
     if(isLeft || isRight){
         return true;
     }
 
+    // Path not exist --> backtrack
     path.pop_back();
 
     return false;
@@ -58,12 +65,13 @@ bool rootToNodePath(Node* root, int n, vector<int> &path){
 
 int LCA(Node* root, int n1, int n2){
 
-    vector<int> path1;
-    vector<int> path2;
+    vector<int> path1;       // path of root to n1
+    vector<int> path2;       // path from root to n2  
 
     rootToNodePath(root,n1,path1);
     rootToNodePath(root,n2,path2);
 
+    // finding last common node (LCA) in given paths
     int lca = -1;
     for(int i=0,j=0; i<path1.size() && j<path2.size() ;i++,j++){
         if(path1[i] != path2[i]){
