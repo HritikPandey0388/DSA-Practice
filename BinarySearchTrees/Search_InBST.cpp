@@ -15,6 +15,7 @@ public:
 };
 
 Node* Insert(Node* root, int val) {
+
     if (root == NULL) {
         root = new Node(val);
         return root;
@@ -22,7 +23,8 @@ Node* Insert(Node* root, int val) {
 
     if (val < root->data) {
         root->left = Insert(root->left, val);
-    } else {
+    }
+    else {
         root->right = Insert(root->right, val);
     }
 
