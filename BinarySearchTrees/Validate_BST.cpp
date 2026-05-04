@@ -50,24 +50,18 @@ bool Validate(Node* root, Node* min, Node* max){
     }
 
     // Invalid BST
-    if(min!=NULL && root->data<min->data){
-        return false;
-    }
-
-    // Inavlid BST
-    if(max!=NULL && root->data>max->data){
+    if((min!=NULL && root->data<min->data) || (max!=NULL && root->data>max->data)){
         return false;
     }
 
     // if false doesn't hit we call for left and right subTree
     return Validate(root->left,min,root) && Validate(root->right,root,max);
 
-
 }
 
 int main(){
 
-    int arr[6] = {5, 1, 3, 4, 2, 7};
+    int arr[6] = {5, 1, 3, 18, 2, 7};
 
     Node* root = BuildTree(arr,6);
     cout << Validate(root,NULL,NULL) << endl;
