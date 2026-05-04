@@ -32,8 +32,10 @@ Node* BuildTree(vector<int> nodes){
     return currNode;
 }
 
+// This function is finding height of N from root in between printing kth Ancestor
 int KthAncestor(Node* root, int node, int k){
 
+    // base case
     if(root==NULL){
         return -1;
     }
@@ -42,19 +44,23 @@ int KthAncestor(Node* root, int node, int k){
         return 0;
     }
 
-    int leftDist = KthAncestor(root->left,node,k);
-    int rightDist = KthAncestor(root->right,node,k);
+    int leftDist = KthAncestor(root->left,node,k);      // left Distance from current Node to n 
+    int rightDist = KthAncestor(root->right,node,k);    // right Distance from current Node to n
 
+    // not exist in left or right subTree
     if(leftDist==-1 && rightDist==-1){
         return -1;
     }
 
+    // found in left or right subTree
     int validVal = leftDist==-1 ? rightDist : leftDist;
 
+    // check for kth Ancestor
     if((validVal + 1) == k){
         cout << "Kth Ancestor : " << root->data << endl;
     }
 
+    // distance from n to current Node
     return (validVal + 1);
 
 }
