@@ -33,6 +33,7 @@ Node* BuildTree(vector<int> nodes){
     return currNode;
 }
 
+// Level Order Traversal (BFS)
 void LevelOrder(Node* root){
 
     queue<Node*> q;
@@ -73,6 +74,7 @@ void LevelOrder(Node* root){
 
 int SumTree(Node* root){
 
+    // base case
     if(root==NULL){
         return 0;
     }
@@ -103,6 +105,7 @@ int main(){
 
     SumTree(root);
 
+    // Printing Sum Tree
     LevelOrder(root);
 
     return 0;
