@@ -42,18 +42,24 @@ Node* BuildTree(int arr[], int size) {
 
 void PrintInRange(Node* root, int start, int end){
 
+    // base case
     if(root==NULL){
         return;
     }
 
+    // root lie in Range
     if(start<=root->data && root->data<=end){
-        PrintInRange(root->left,start,end);
-        cout << root->data << " " ;
-        PrintInRange(root->right,start,end);
+
+        PrintInRange(root->left,start,end);          // Print Left subTree
+        cout << root->data << " " ;                  // Print current Node 
+        PrintInRange(root->right,start,end);         // Print left subTree 
+
     }
+    // ans --> right subTree
     else if(root->data<start){
         PrintInRange(root->right,start,end);
     } 
+    // ans --> right subTree
     else{
         PrintInRange(root->left,start,end);
     }
