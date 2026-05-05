@@ -34,6 +34,7 @@ Node* BuildTree(vector<int> nodes){
 
 Node* LCA(Node* root, int n1, int n2){
 
+    // base case
     if(root==NULL){
         return NULL;
     }
@@ -42,13 +43,16 @@ Node* LCA(Node* root, int n1, int n2){
         return root;
     }
 
+    // check Node exist in right or left Subtree
     Node* leftLCA = LCA(root->left,n1,n2);
     Node* rightLCA = LCA(root->right,n1,n2);
 
+    // n1 and n2 found for Current Root
     if(leftLCA!=NULL && rightLCA!=NULL){
         return root;
     }
 
+    // Node exist in only one subTree (right ot left)
     return leftLCA==NULL ? rightLCA : leftLCA;
 
 }
