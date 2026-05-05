@@ -55,6 +55,7 @@ Node* LCA(Node* root, int n1, int n2){
 
 int dist(Node* root, int n){
 
+    // base case
     if(root==NULL){
         return -1;
     }
@@ -63,30 +64,36 @@ int dist(Node* root, int n){
         return 0;
     }
 
+    // find distance in left subTree
     int leftDist = dist(root->left,n);
 
+    // n found in left subTree 
     if(leftDist!=-1){
-        return leftDist + 1;
+        return leftDist + 1;   // return left Distance
     }
 
+    // find Distance in right subTree
     int rightDist = dist(root->right,n);
 
+    // n found in right subTree
     if(rightDist!=-1){
-        return rightDist + 1;
+        return rightDist + 1;     // return right Distance
     }
 
+    // n not found
     return -1;
 }
 
 int minDist(Node* root, int n1, int n2){
 
+    // Find LCA for n1,n2
     Node* lca = LCA(root,n1,n2);
 
-    int dist1 = dist(lca,n1);
-    int dist2 = dist(lca,n2);
+    int dist1 = dist(lca,n1);          // distance from LCA to n1
+    int dist2 = dist(lca,n2);          // distance from LCA to n2  
 
-    return dist1 + dist2;
-}
+    return dist1 + dist2;              // ans  
+} 
 
 int main(){
     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
