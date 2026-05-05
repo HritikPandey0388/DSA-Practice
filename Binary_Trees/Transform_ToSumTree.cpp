@@ -79,22 +79,18 @@ int SumTree(Node* root){
         return 0;
     }
 
-    int leftOld = SumTree(root->left);
-    int rightOld = SumTree(root->right);
+    // get sum of left and right subTree
+    int leftSum = SumTree(root->left);
+    int rightSum = SumTree(root->right);
 
-    int currOld = root->data;
+    // store current Original Node data
+    int currVal = root->data;
 
-    root->data = leftOld + rightOld;
+    // update cuurent Node data to sum 
+    root->data = leftSum + rightSum;
 
-    if(root->left!=NULL){
-        root->data += root->left->data;
-    }
-
-    if(root->right!=NULL){
-        root->data += root->right->data;
-    }
-
-    return currOld;
+    // return current Node data and its SubTree sum
+    return currVal + root->data;
 
 }
 
