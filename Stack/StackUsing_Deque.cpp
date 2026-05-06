@@ -8,18 +8,22 @@ class Stack{
 
 public:
 
+    // push
     void push(T data){
         deq.push_front(data);
     }
 
+    // pop
     void pop(){
         deq.pop_front();
     }
 
+    // Top
     T front(){
         return deq.front();
     }
 
+    // Empty
     bool empty(){
         return deq.empty();
     }
