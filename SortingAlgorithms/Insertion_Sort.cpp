@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<vector>
 #include<climits>
@@ -16,17 +15,24 @@ void Sort(vector<int> &nums){
 
     int n = nums.size();
     
-    for(int i=1;i<n;i++){
+    // start with 2nd element
+    for(int i = 1; i < n; i++){
 
-        int CurrNo=nums[i];
+        // Current element to insert
+        int CurrNo = nums[i];
 
-        for(int j=(i-1);j>=0;j--){
+        int j = i - 1;
 
-            if(nums[j]>CurrNo){
-                swap(nums[j+1],nums[j]);
-            }
+        // Shift elements greater than CurrNo
+        // one position ahead
+        while(j >= 0 && nums[j] > CurrNo){
 
+            nums[j + 1] = nums[j];
+            j--;
         }
+
+        // Place CurrNo at correct position
+        nums[j + 1] = CurrNo;
 
     }
 
