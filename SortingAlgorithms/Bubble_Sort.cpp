@@ -10,24 +10,32 @@ void PrintVector(vector<int> &nums){
 
 }
 
+// Bubble Sort Function
 void Sort(vector<int> &nums){
 
     int n = nums.size();
     
-    for(int i=0;i<n;i++){
+    for(int i = 0; i < n; i++){
 
+        // If no swapping happens --> already sorted
         bool isSwap = false;
 
-        for(int j=0;j<n-1-i;j++){
+        // largest element moves to the end
+        for(int j = 0; j < n - 1 - i; j++){
             
-            if(nums[j]>nums[j+1]){
-                swap(nums[j],nums[j+1]);
+            // Swap if current element > next element
+            if(nums[j] > nums[j + 1]){
+
+                swap(nums[j], nums[j + 1]);
+
+                // swap done --> unsorted
                 isSwap = true;
             }
 
         }
         
-        if(isSwap==false){
+        // sorted
+        if(isSwap == false){
             return;
         }
 
