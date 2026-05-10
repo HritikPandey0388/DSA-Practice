@@ -7,21 +7,30 @@ bool rotateString(string s, string goal) {
 
     int n = s.size();
     int i = 0; 
-    while(i<n){
 
-        if(s==goal){
+    while(i < n){
+
+        // goal achieved
+        if(s == goal){
             return true;
         }
-            
+
+        // Store first character
         char ch = s[0];
+
+        // Remove first character from string
         s.erase(0, 1);
+
+        // Add removed character at the end
         s.push_back(ch);
+
         i++;
     }
 
+    // No rotation exist
     return false;
-        
 }
+
 
 int main() {
 
