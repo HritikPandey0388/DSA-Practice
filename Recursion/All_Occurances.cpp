@@ -4,14 +4,17 @@ using namespace std;
 
 void Occurances(vector<int> &nums, int key, int Idx){
 
+    // base case
     if(Idx==nums.size()){
         return;
     }
 
+    // index found where key is prensent
     if(nums[Idx]==key){
         cout << Idx << " ";
     }
 
+    // calling for next sub Array
     Occurances(nums,key,Idx+1);
     
 }
