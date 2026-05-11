@@ -4,15 +4,19 @@ using namespace std;
 
 bool isSorted(vector<int> &nums, int idx, int size){
 
-    if(idx==(size-1)){
+    // Base Case:
+    if(idx == (size - 1)){
         return true;
     }
 
-    if(nums[idx]>nums[idx+1]){
+    // current element > greater than next element,
+    // array is not sorted
+    if(nums[idx] > nums[idx + 1]){
         return false;
     }
 
-    return isSorted(nums,idx+1,size);
+    // Check the remaining subArray
+    return isSorted(nums, idx + 1, size);
 
 }
 
