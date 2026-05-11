@@ -3,20 +3,28 @@ using namespace std;
 
 void AllSubstrings(string &str, int st, int end){
 
+    // Size of the string
     int n = str.size();
 
-    if(st==n){
-        return ;
-    }
-
-    if(end==n){
-        AllSubstrings(str,st+1,st+1);
+    // Base Case:
+    if(st == n){
         return;
     }
 
-    cout << str.substr(st,end-st+1) << endl;
+    // move to the next starting index
+    if(end == n){
 
-    AllSubstrings(str,st,end+1);
+        // Start new substring --> start+1
+        AllSubstrings(str, st + 1, st + 1);
+
+        return;
+    }
+
+    // Print current substring
+    cout << str.substr(st, end - st + 1) << endl;
+
+    // expand substring --> increase ending index 
+    AllSubstrings(str, st, end + 1);
 
 }
 
