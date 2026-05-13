@@ -3,11 +3,13 @@ using namespace std;
 
 int sum(int n){
 
+    // base case
     if(n==1){
         return 1;
     }
-
-    return n+sum(n-1);
+ 
+    // sum of 1 to n = n + sum of 1 to n-1
+    return n + sum(n-1);
 }
 
 int main(){
