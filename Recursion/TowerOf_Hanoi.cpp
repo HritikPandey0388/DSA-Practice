@@ -1,15 +1,21 @@
 #include<iostream>
 using namespace std;
 
-void TowerOfHanoi(int n,char source, char helper, char destination){
+void TowerOfHanoi(int n, char source, char helper, char destination){
     
+    // base case:
     if(n==0){
         return;
     }
 
-    TowerOfHanoi(n-1,source,destination,helper);
+    // move top (n-1) disks from source to helper using destination
+    TowerOfHanoi(n-1, source, destination, helper);
+
+    // move nth disk from source to destination
     cout << source << "-->" << destination << endl;
-    TowerOfHanoi(n-1,helper,source,destination);
+
+    // move (n-1) disks from helper to destination using source 
+    TowerOfHanoi(n-1, helper, source, destination);
 
 }
 
