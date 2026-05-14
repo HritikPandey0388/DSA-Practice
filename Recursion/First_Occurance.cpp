@@ -4,14 +4,17 @@ using namespace std;
 
 int FirstOccur(vector<int> &nums, int idx, int target){
 
+    // base case
     if(idx==nums.size()){
         return -1;
     }
 
+    // first occurance found
     if(nums[idx]==target){
         return idx;
     }
 
+    // checking occurance in next subArray
     return FirstOccur(nums,idx+1,target);
 
 }
