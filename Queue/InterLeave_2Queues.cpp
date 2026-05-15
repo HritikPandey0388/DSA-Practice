@@ -7,11 +7,13 @@ void InterLeaf(queue<int> &Org){
     int n = Org.size();
     queue<int> q;
 
+    // push first half elements in temp queue
     for(int i=0;i<n/2;i++){
         q.push(Org.front());
         Org.pop();
     }
 
+    // push each element of both queue once
     while(!q.empty()){
         Org.push(q.front());
         q.pop();
