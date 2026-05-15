@@ -23,6 +23,7 @@ public:
         head = tail = NULL;
     }
 
+    // push from back
     void enqueue(int val){
         Node* newNode = new Node(val);
 
@@ -35,6 +36,7 @@ public:
         tail = newNode;
     }
 
+    // delete from front
     void dequeue(){
         if(Empty()){
             cout << "Queue is Empty !" << endl;
@@ -46,6 +48,7 @@ public:
         delete temp;
     }
 
+    // front
     int front(){
         if(Empty()){
             cout << " Queue is Empty !" << endl;
@@ -54,6 +57,7 @@ public:
         return head->data;
     }
 
+    // empty
     bool Empty(){
         return head==NULL;
     }
