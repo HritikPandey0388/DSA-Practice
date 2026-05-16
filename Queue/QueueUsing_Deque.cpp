@@ -8,18 +8,22 @@ class Queue{
 
 public:
 
+    // push element --> rear
     void push(T data){
         deq.push_back(data);
     }
 
+    // delete element --> front
     void pop(){
         deq.pop_front();
     }
 
+    // front element
     T front(){
         return deq.front();
     }
 
+    // empty
     bool empty(){
         return deq.empty();
     }
