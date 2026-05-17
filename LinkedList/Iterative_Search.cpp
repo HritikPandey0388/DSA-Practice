@@ -100,14 +100,17 @@ public:
 
         while(temp!=NULL){
 
+            // value found
             if(temp->data==val){
                 return idx;
             }
 
+            // update temp, Index
             temp = temp->next;
             idx++;
         }
 
+        // value not found
         return -1;
     }
 
