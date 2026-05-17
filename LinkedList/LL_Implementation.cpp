@@ -41,6 +41,7 @@ public:
         }
     }
 
+    // add from front
     void push_front(int val){
 
         Node* newNode = new Node(val);
@@ -57,6 +58,7 @@ public:
 
     }
 
+    // add from back
     void push_back(int val){
 
         Node* newNode = new Node(val);
@@ -73,6 +75,7 @@ public:
         
     }
 
+    // delete from back
     void pop_back(){
         
         if(head==NULL){
@@ -93,6 +96,7 @@ public:
         
     }
 
+    // delete from front
     void pop_front(){
 
         if(head==NULL){
