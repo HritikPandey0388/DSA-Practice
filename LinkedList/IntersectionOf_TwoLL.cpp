@@ -11,22 +11,35 @@ void PrintLL(list<int> &list){
 
 int Intersection(list<int> &L1, list<int> &L2){
 
+    // slow pointer --> beginning of first list
     auto slow = L1.begin();
+
+    // fast pointer --> beginning of second list
     auto fast = L2.begin();
     
-    while(*slow!=*fast){
+    // Continue until slow = fast
+    while(*slow != *fast){
 
+        // slow --> +1 step
         ++slow;
-        if(slow==L1.end()){
+
+        // If end --> end
+        // end --> beginning
+        if(slow == L1.end()){
             slow = L1.begin();
         }
 
+        // fast --> +2 steps
         ++(++fast);
-        if(fast==L2.end()){
+
+        // If fast --> end
+        // fast --> beginning
+        if(fast == L2.end()){
             fast = L2.begin();
         }
     }
 
+    // Return the common/intersection value
     return *slow;
 }
 
