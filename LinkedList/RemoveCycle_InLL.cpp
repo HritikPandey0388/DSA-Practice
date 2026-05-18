@@ -43,48 +43,63 @@ public:
 
 void RemoveCycle(Node* head){
 
+    // Floyd's Cycle Detection Algorithm
     Node* slow = head;
     Node* fast = head;
+
     bool isCycle = false;
 
-    while(fast!=NULL && fast->next!=NULL){
+    // slow --> +1 step and fast --> +2 steps
+    while(fast != NULL && fast->next != NULL){
         
         slow = slow->next;
         fast = fast->next->next;
-        
 
-        if(slow==fast){
+        // slow = fast --> cycle exists
+        if(slow == fast){
             cout << "Cycle exits." << endl;
             isCycle = true;
             break;
         }
-
     }
 
+    // no cycle 
     if(!isCycle){
         cout << "Cycle doesn't exist." << endl;
         return;
     }
 
+    // Move slow --> head
     slow = head;
 
-    if(slow==fast){
-        while(fast->next!=slow){
+    // Cycle starts from head itself
+    if(slow == fast){
+
+        // Move fast its next --> head
+        while(fast->next != slow){
             fast = fast->next;
         }
+
+        // Break the cycle
         fast->next = NULL;
     }
     else{
+
+        // prev --> node before fast
         Node* prev = fast;
-        while(slow!=fast){
+
+        // Move both pointers one step at a time
+        // They will meet at starting node of cycle
+        while(slow != fast){
             slow = slow->next;
+
             prev = fast;
             fast = fast->next;
         }
 
+        // Remove cycle 
         prev->next = NULL;
     }
-
 }
 
 int main(){
