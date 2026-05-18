@@ -95,18 +95,20 @@ public:
 
     int helper(Node* temp, int key){
 
-        if(temp->data==key){
+        // Base case:
+        if(temp->data == key){
             return 0;
         }
 
-        int idx = helper(temp->next,key);
+        // Recursive call for next node
+        int idx = helper(temp->next, key);
 
-        return idx+1;
-        
+        // increase index by 1 for each Node 
+        return idx + 1;
     }
 
-    int  Search(int val){
-        return helper(head,val);
+    int Search(int val){
+        return helper(head, val);
     }
 
     void PrintLL(){
