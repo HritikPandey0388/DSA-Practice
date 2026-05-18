@@ -94,19 +94,25 @@ public:
     }
 
     void reverse(){
-        
+    
         Node* curr = head;
         Node* prev = NULL;
-        
-        while(curr!=NULL){
+
+        while(curr != NULL){
+
+            // Store next node before breaking link
             Node* next = curr->next;
+
+            // Reverse current node's pointer
             curr->next = prev;
+
+            // Move prev and curr one step ahead
             prev = curr;
             curr = next;
         }
 
+        // Update head 
         head = prev;
-
     }
 
     void PrintLL(){
