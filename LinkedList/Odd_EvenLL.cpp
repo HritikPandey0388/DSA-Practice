@@ -53,23 +53,31 @@ void PrintLL(Node* head){
 
 void OddEven(Node* &head){
 
+    // Head and Tail pointers for Even linked list
     Node* EvenHead = NULL;
     Node* EvenTail = NULL;
+
+    // Head and Tail pointers for Odd linked list
     Node* OddHead = NULL;
     Node* OddTail = NULL;
     
     Node* temp = head;
-    
-    while(temp!=NULL){
+    while(temp != NULL){
         
+        // Store next node before breaking links
         Node* next = temp->next;
+
+        // Disconnect current node from original list
         temp->next = NULL;
         
-        if(temp->data%2==0){
+        // If current node contains even data
+        if(temp->data % 2 == 0){
             
-            if(EvenHead==NULL){
+            // First even node
+            if(EvenHead == NULL){
                 EvenHead = EvenTail = temp; 
             }
+            // Attach node at end of even list
             else{
                 EvenTail->next = temp;
                 EvenTail = temp;
@@ -77,9 +85,11 @@ void OddEven(Node* &head){
         }
         else{
             
-            if(OddHead==NULL){
+            // First odd node
+            if(OddHead == NULL){
                 OddHead = OddTail = temp;
             }
+            // Attach node at end of odd list
             else{
                 OddTail->next = temp;
                 OddTail = temp;
@@ -89,16 +99,19 @@ void OddEven(Node* &head){
         temp = next;
     }
     
-    if(EvenTail!=NULL){
+    // Connect even list with odd list
+    if(EvenTail != NULL){
         EvenTail->next = OddHead;
     }
     
-    if(EvenHead==NULL){
+    // Update head of final list
+    if(EvenHead == NULL){
         head = OddHead;
     }
     else{
         head = EvenHead;
     }
+
 }
 
 int main(){
