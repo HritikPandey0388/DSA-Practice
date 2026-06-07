@@ -15,7 +15,7 @@ void Sort(vector<int> &nums){
 
     int n = nums.size();
     
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n - 1; i++){
 
         // If no swapping happens --> already sorted
         bool isSwap = false;
