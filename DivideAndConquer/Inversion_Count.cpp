@@ -1,66 +1,71 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-class Solution {
-public:
-    long long merge(vector<int>& arr, int l, int m, int r) {
-        vector<int> temp;
-        int i = l;
-        int j = m + 1;
-        long long invCount = 0;
+int mergeCount(vector<int>& arr, int st, int mid, int end){
 
-        while (i <= m && j <= r) {
-            if (arr[i] <= arr[j]) {
-                temp.push_back(arr[i]);
-                i++;
-            } else {
-                temp.push_back(arr[j]);
-                invCount += (m - i + 1);  // key idea
-                j++;
-            }
-        }
+    int i = st, j = mid + 1;
+    int count = 0;
+    
+    vector<int> temp;
 
-        while (i <= m) {
+    while(i <= mid  && j <= end){
+
+        if(arr[i] < arr[j]){
             temp.push_back(arr[i]);
             i++;
         }
-
-        while (j <= r) {
+        else{
             temp.push_back(arr[j]);
+            count += (mid - i + 1);
             j++;
         }
-
-        for (int k = l; k <= r; k++) {
-            arr[k] = temp[k - l];
-        }
-
-        return invCount;
     }
 
-    long long mergeSort(vector<int>& arr, int l, int r) {
-        long long invCount = 0;
-
-        if (l >= r) return 0;
-
-        int m = l + (r - l) / 2;
-
-        invCount += mergeSort(arr, l, m);
-        invCount += mergeSort(arr, m + 1, r);
-        invCount += merge(arr, l, m, r);
-
-        return invCount;
+    while(i <= mid){
+        temp.push_back(arr[i]);
+        i++;
     }
 
-    long long inversionCount(vector<int>& arr) {
-        return mergeSort(arr, 0, arr.size() - 1);
+    while(j <= end){
+        temp.push_back(arr[j]);
+        j++;
     }
-};
+
+    for(int idx = st; idx <= end; idx++){
+        arr[idx] = temp[idx-st];
+    }
+    
+
+    return count;
+
+}
+
+int inversionCount(vector<int>& arr, int st, int end){
+
+    if(st >= end){
+        return 0;
+    }
+
+    int count = 0;
+
+    int mid = st + (end - st)/2;
+
+    count += inversionCount(arr, st, mid);
+    count += inversionCount(arr, mid + 1, end);
+
+    count += mergeCount(arr, st, mid, end);
+
+    return count;
+
+}
 
 int main() {
+    
     vector<int> arr = {2, 4, 1, 3, 5};
+    int n = arr.size();
 
-    Solution obj;
-    cout << obj.inversionCount(arr) << endl;
+    cout << inversionCount(arr, 0, n-1) << endl;
 
     return 0;
 }
